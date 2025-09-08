@@ -21,5 +21,13 @@ export {
 
 export default arcjet({
     key: env.ARCJET_KEY,
+
     characteristics: ["fingerprint"],
+
+    //define base rules here, can also be empty if you don't want to have any
+    rules: [
+        shield({
+            mode: 'LIVE',
+        })
+    ]
 })
