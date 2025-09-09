@@ -18,6 +18,10 @@ export default function VerifyRequest() {
     const isOtpCompleted = otp.length === 6;
 
     function verifyOtp(){
+        if (!email) {
+            toast.error('Email is missing');
+            return;
+        }
         startTransition( async ()=>{
             await authClient.signIn.emailOtp({
                 email: email,
